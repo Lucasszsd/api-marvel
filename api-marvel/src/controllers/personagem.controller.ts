@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import * as PersonagemService from "../services/personagem.service";
 
+
 export const inserirPersonagensNoBanco = async (
   req: Request,
   res: Response
@@ -12,6 +13,8 @@ export const inserirPersonagensNoBanco = async (
       const dadosPersonagem = {
         nome: personagem.name,
         descricao: personagem.description,
+        thumbnail: personagem.thumbnail.path,
+        extension : personagem.thumbnail.extension,
       };
       await PersonagemService.createPersonagem(dadosPersonagem);
     }
@@ -24,7 +27,7 @@ export const inserirPersonagensNoBanco = async (
   }
 };
 
-// Create
+
 export const criarPersonagem = async (req: Request, res: Response) => {
   try {
     const novoPersonagem = await PersonagemService.createPersonagem(req.body);
