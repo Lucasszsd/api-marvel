@@ -32,3 +32,12 @@ Completeness das operações CRUD para cada entidade.
 Qualidade e cobertura dos testes implementados.
 Performance e robustez da API, especialmente sob carga.
 Clareza da documentação e facilidade de uso da API.
+
+endpoints :
+
+/inserir-personagens
+realiza a busca de personagens da saga na api e popula o banco local com as informações dos personagens
+/inserir-quadrinhos
+busca os quadrinhos da saga e popula no banco
+/inserir-criadores
+busca os criadores dos quadrinhos da saga e popula o banco
