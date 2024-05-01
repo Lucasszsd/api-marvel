@@ -10,13 +10,16 @@ export const getPersonagensFromMarvelAPI = async () => {
     const response = await axios.get(apiUrl);
     return response.data.data.results;
   } catch (error) {
-    console.error("Erro ao recuperar personagens", error);
+    console.error("Erro ao recuperar personagens da saga", error);
     return [];
   }
 };
 
 export const createPersonagem = async (dados: any) => {
-  dados.thumbnail = util.appendextensaoArquivo(dados.thumbnail, dados.extension) 
+  dados.thumbnail = util.appendExtensaoArquivo(
+    dados.thumbnail,
+    dados.extension
+  );
   return await PersonagemSchema.create(dados);
 };
 

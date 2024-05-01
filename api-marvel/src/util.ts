@@ -1,4 +1,3 @@
-export function appendextensaoArquivo(link : String, extensao : String){
-    return link+"."+extensao
-
+export function appendExtensaoArquivo(link: string, extensao: string) {
+  return link + "." + extensao;
 }

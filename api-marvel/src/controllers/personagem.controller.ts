@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import * as PersonagemService from "../services/personagem.service";
 
-
 export const inserirPersonagensNoBanco = async (
   req: Request,
   res: Response
@@ -14,7 +13,7 @@ export const inserirPersonagensNoBanco = async (
         nome: personagem.name,
         descricao: personagem.description,
         thumbnail: personagem.thumbnail.path,
-        extension : personagem.thumbnail.extension,
+        extension: personagem.thumbnail.extension,
       };
       await PersonagemService.createPersonagem(dadosPersonagem);
     }
@@ -27,17 +26,6 @@ export const inserirPersonagensNoBanco = async (
   }
 };
 
-
-export const criarPersonagem = async (req: Request, res: Response) => {
-  try {
-    const novoPersonagem = await PersonagemService.createPersonagem(req.body);
-    res.status(201).json(novoPersonagem);
-  } catch (error: any) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-// Read
 export const obterPersonagens = async (req: Request, res: Response) => {
   try {
     const personagens = await PersonagemService.getPersonagens();
@@ -59,7 +47,6 @@ export const obterPersonagemPorId = async (req: Request, res: Response) => {
   }
 };
 
-// Update
 export const atualizarPersonagem = async (req: Request, res: Response) => {
   try {
     const personagem = await PersonagemService.updatePersonagem(
@@ -75,7 +62,6 @@ export const atualizarPersonagem = async (req: Request, res: Response) => {
   }
 };
 
-// Delete
 export const deletarPersonagem = async (req: Request, res: Response) => {
   try {
     const personagem = await PersonagemService.deletePersonagem(req.params.id);

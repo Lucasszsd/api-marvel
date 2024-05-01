@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const quadrinhosSchema = new Schema(
+const creatorsSchema = new Schema(
   {
     nome: String,
     funcao: String,
@@ -11,4 +11,4 @@ const quadrinhosSchema = new Schema(
   }
 );
 
-export default model("Quadrinhos", quadrinhosSchema);
+export default model("Creators", creatorsSchema);
