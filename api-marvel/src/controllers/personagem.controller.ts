@@ -73,3 +73,34 @@ export const deletarPersonagem = async (req: Request, res: Response) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const obterImagemPersonagemPorId = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const personagem = await PersonagemService.getImagemPersonagemById(
+      req.params.id
+    );
+    if (!personagem) {
+      return res.status(404).json({ message: "Personagem não encontrado" });
+    }
+    res.status(200).json(personagem);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const deletarPersonagemPorNome = async (req: Request, res: Response) => {
+  try {
+    const personagem = await PersonagemService.deletePersonagemNome(
+      req.params.nome
+    );
+    if (!personagem) {
+      return res.status(404).json({ message: "Personagem não encontrado" });
+    }
+    res.status(204).send("Personagem deletado");
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};

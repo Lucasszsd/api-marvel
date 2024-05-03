@@ -16,10 +16,38 @@ export const getQuadrinhosFromMarvelAPI = async () => {
 };
 
 export const createQuadrinho = async (dados: any) => {
-  console.log(dados);
   dados.thumbnail = util.appendExtensaoArquivo(
     dados.thumbnail,
     dados.extension
   );
   return await QuadrinhosSchema.create(dados);
+};
+
+export const getQuadrinhos = async () => {
+  return await QuadrinhosSchema.find();
+};
+
+export const getQuadrinhoById = async (id: string) => {
+  return await QuadrinhosSchema.findById(id);
+};
+
+export const updateQuadrinho = async (id: string, novosDados: any) => {
+  return await QuadrinhosSchema.findByIdAndUpdate(id, novosDados, {
+    new: true,
+  });
+};
+
+export const deleteQuadrinho = async (id: string) => {
+  return await QuadrinhosSchema.findByIdAndDelete(id);
+};
+
+export const getQuadrinhoImagemById = async (id: string) => {
+  return await QuadrinhosSchema.findById({ _id: id }, { _id: 0, thumbnail: 1 });
+};
+
+export const getQuadrinhoDataById = async (id: string) => {
+  return await QuadrinhosSchema.findById(
+    { _id: id },
+    { _id: 0, dataPublicacao: 1 }
+  );
 };

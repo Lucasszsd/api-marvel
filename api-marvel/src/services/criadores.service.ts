@@ -22,3 +22,25 @@ export const createCriadores = async (dados: any) => {
   );
   return await CreatorsSchema.create(dados);
 };
+
+export const getCriadores = async () => {
+  return await CreatorsSchema.find();
+};
+
+export const getCriadorById = async (id: string) => {
+  return await CreatorsSchema.findById(id);
+};
+
+export const updateCriador = async (id: string, novosDados: any) => {
+  return await CreatorsSchema.findByIdAndUpdate(id, novosDados, {
+    new: true,
+  });
+};
+
+export const deleteCriador = async (id: string) => {
+  return await CreatorsSchema.findByIdAndDelete(id);
+};
+
+export const getComicsCriador = async (id: string) => {
+  return await CreatorsSchema.findById({ _id: id }, { _id: 0, quadrinhos: 1 });
+};

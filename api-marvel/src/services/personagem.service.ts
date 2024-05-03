@@ -40,3 +40,11 @@ export const updatePersonagem = async (id: string, novosDados: any) => {
 export const deletePersonagem = async (id: string) => {
   return await PersonagemSchema.findByIdAndDelete(id);
 };
+
+export const getImagemPersonagemById = async (id: string) => {
+  return await PersonagemSchema.findById({ _id: id }, { _id: 0, thumbnail: 1 });
+};
+
+export const deletePersonagemNome = async (nome: string) => {
+  return await PersonagemSchema.deleteOne({ nome: nome });
+};

@@ -32,3 +32,79 @@ export const criarQuadrinho = async (req: Request, res: Response) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const obterQuadrinhos = async (req: Request, res: Response) => {
+  try {
+    const quadrinhos = await QuadrinhosService.getQuadrinhos();
+    res.status(200).json(quadrinhos);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const obterQuadrinhoPorId = async (req: Request, res: Response) => {
+  try {
+    const quadrinho = await QuadrinhosService.getQuadrinhoById(req.params.id);
+    if (!quadrinho) {
+      return res.status(404).json({ message: "Quadrinho não encontrado" });
+    }
+    res.status(200).json(quadrinho);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const atualizarQuadrinho = async (req: Request, res: Response) => {
+  try {
+    const quadrinho = await QuadrinhosService.updateQuadrinho(
+      req.params.id,
+      req.body
+    );
+    if (!quadrinho) {
+      return res.status(404).json({ message: "Quadrinho não encontrado" });
+    }
+    res.status(200).json(quadrinho);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const deletarQuadrinho = async (req: Request, res: Response) => {
+  try {
+    const personagem = await QuadrinhosService.deleteQuadrinho(req.params.id);
+    if (!personagem) {
+      return res.status(404).json({ message: "Quadrinho não encontrado" });
+    }
+    res.status(204).send();
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const obterImagemQuadrinho = async (req: Request, res: Response) => {
+  try {
+    const quadrinho = await QuadrinhosService.getQuadrinhoImagemById(
+      req.params.id
+    );
+    if (!quadrinho) {
+      return res.status(404).json({ message: "Quadrinho não encontrado" });
+    }
+    res.status(200).json(quadrinho);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const obterDataQuadrinho = async (req: Request, res: Response) => {
+  try {
+    const quadrinho = await QuadrinhosService.getQuadrinhoDataById(
+      req.params.id
+    );
+    if (!quadrinho) {
+      return res.status(404).json({ message: "Quadrinho não encontrado" });
+    }
+    res.status(200).json(quadrinho);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
