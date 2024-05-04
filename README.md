@@ -1,11 +1,4 @@
-# api-marvel
-
 # secret wars
-
-# http://gateway.marvel.com/v1/public/events/270?ts=1&apikey=34efc23fc561a1a203cf581cec43daf0&hash=c7d2edd3395941ec22157a6e0f577d40
-
-endpoints :
-
 /inserir-personagens
 realiza a busca de personagens da saga na api e popula o banco local com as informações dos personagens
 /inserir-quadrinhos
