@@ -1,17 +1,17 @@
 # secret wars
-/inserir-personagens
+* /inserir-personagens
 realiza a busca de personagens da saga na api e popula o banco local com as informações dos personagens
-/inserir-quadrinhos
+* /inserir-quadrinhos
 busca os quadrinhos da saga e popula no banco
-/inserir-criadores
+* /inserir-criadores
 busca os criadores dos quadrinhos da saga e popula o banco
-/quadrinhocriador/:id
+* /quadrinhocriador/:id
 quadrinhos do criador
-/imagempersonagem/:id
+* /imagempersonagem/:id
 imagem tratada para abrir diretamente no navegador (personagem)
-/capaquadrinho/:id
+* /capaquadrinho/:id
 imagem tratada para abrir diretamente no navegador (capa do quadrinho)
-/datalancamentoquadrinho/:id
+* /datalancamentoquadrinho/:id
 data de lançamento de determinado quadrinho
-/deletaPersonagemIndesejado/:nome
+* /deletaPersonagemIndesejado/:nome
 deleta um personagem pelo
